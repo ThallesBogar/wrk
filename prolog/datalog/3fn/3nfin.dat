@@ -1,0 +1,5 @@
+dep(engenharia, 'Henrique').
+dep(matematica, 'Silvio').
+empregado(n1, 'Joao', engenharia).
+empregado(n2, 'Pedro', matematica).
+empregado(n3, 'Jose', matematica).

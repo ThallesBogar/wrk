@@ -1,0 +1,26 @@
+father(Dad, Child) :-
+     parent(Dad, Child),
+     male(Dad).
+
+mother(Mother, Child) :-
+     parent(Mother, Child),
+     female(Mother).
+
+procreates(Dad, Mother) :-
+     father(Dad, Child),
+     mother(Mother, Child).
+
+brother(Brother, Sister) :-
+     male(Brother),
+     parent(Parent, Brother),
+     parent(Parent, Sister).
+
+male(valdemar).
+female(valeria).
+male(thalles).
+male(iuri).
+parent(valeria, thalles).
+parent(valdemar, thalles).
+parent(valeria, iuri).
+parent(valdemar, iuri).
+

@@ -1,0 +1,14 @@
+#button {
+    float: right;
+    position: relative;
+    right: 200px;
+    top: 15px;
+}
+
+#imgFazenda {
+    position: fixed;
+}
+
+#redH1 {
+    color: red;
+}

@@ -1,0 +1,43 @@
+<html>
+  <head>
+   <title>Impatient mode</title>
+  </head>
+  <body>
+    <h1>Impatient mode</h1>
+    <p>De dentro do emacs, siga os passos abaixo</p>
+    <ol>
+      <li>M-x impatient mode </li>
+      <li>M-x httpd-start</li>
+    </ol>
+
+    <h2>Instalar o impatient mode</h2>
+    <p>Instalar o pacote impatient mode. É uma boa ideia
+     fazer a instalação em ~/.emacs.d/</p>
+    <pre>
+      git clone https://github.com/skeeto/impatient-mode
+      git clone https://github.com/eschulte/emacs-web-server
+    </pre>
+
+    <p> Configurar o .emacs</p>
+    <pre>
+     ; Criar diretório em /var/www
+     ; Na web: localhost:8080/imp
+     ; Dois modos necessários M-x impatient-mode e httpd-start
+     (add-to-list 'load-path "~/.emacs.d/emacs-web-server")
+     (add-to-list 'load-path "~/.emacs.d/impatient-mode")
+     (add-to-list 'load-path "~/.emacs.d/env-vars")
+     (require 'impatient-mode)
+    </pre>
+    <h2>How to call an httpd page</h2>
+    <p>Once you starts the impatient mode, an html
+      document can be viewed at the following
+      address in your machine:</p>
+
+    <pre>
+      localhost:imp/
+      </pre>
+  </body>
+  
+
+
+</html>

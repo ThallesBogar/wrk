@@ -1,0 +1,123 @@
+#buttonCompra {
+    float: right;
+    position: relative;
+    right: 20px;
+    top: 15px;
+    width: 150px;
+}
+
+#buttonVenda {
+    float: right;
+    position: relative;
+    right: -130px;
+    top: 70px;
+    width: 150px;
+}
+
+#buttonMorte {
+    float: right;
+    position: relative;
+    right: -280px;
+    top: 125px;
+    width: 150px;
+}
+
+#buttonAdicionar {
+    float: right;
+    position: relative;
+    right: 20px;
+    top: 15px;
+    width: 150px;
+}
+
+#buttonRemover {
+    float: right;
+    position: relative;
+    top: 30px;
+    right: 20px;
+    width: 150px;
+}
+
+#buttonEmprestimo {
+    float: right;
+    position: relative;
+    top: 45px;
+    right: 20px;
+    width: 150px;
+}
+
+#buttonDevolucao {
+    float: right;
+    position: relative;
+    top: 60px;
+    right: 20px;
+    width: 150px;
+}
+
+#imgFazenda {
+    position: fixed;
+}
+
+#MaquinarioTable {
+    float: left;
+    position: relative;
+    width: 900px;
+    left: 15px;
+}
+
+#HistoricoGadoVenda, #HistoricoGadoManejo, #HistoricoGadoMorte, #HistoricoMaquinario, #HistoricoTrato, #HistoricoManutencao
+, #HistoricoMaquinarioAdicao, #HistoricoMaquinarioRemocao, #HistoricoMaquinarioEmprestimo, #HistoricoMaquinarioDevolucao{
+    display: none;
+}
+
+#HistoricoGadoVenda table, #HistoricoGadoCompra table, #HistoricoGadoManejo table, #HistoricoGadoMorte table, 
+#HistoricoMaquinarioAdicao table, #HistoricoMaquinarioRemocao table, #HistoricoMaquinarioEmprestimo table, 
+ #HistoricoMaquinarioDevolucao table, #HistoricoTrato table, #HistoricoManutencao table, #MaquinarioTable table{
+    margin-top: 15px;
+}
+
+#gambiarra01{
+    margin-left: -15px;
+    margin-right: 15px;
+}
+
+#gambiarra02{
+    width: 300px;
+}
+
+#gambiarra03{
+    width: 135px;
+}
+
+.modal.modal-wide .modal-dialog {
+  width: 500px;
+}
+
+#pastoModalTable{
+    width: 300px;
+}
+
+#manejoButton{
+    float: right;
+    position: absolute;
+    top: 15px;
+    left: 328px;
+    width: 155px;
+}
+
+#tratoButton{
+    float: right;
+    position: absolute;
+    top: 60px;
+    left: 328px;
+    width: 155px;
+}
+
+#manutencaoButton{
+    float: right;
+    position: absolute;
+    top: 105px;
+    left: 328px;
+    width: 155px;
+}
+

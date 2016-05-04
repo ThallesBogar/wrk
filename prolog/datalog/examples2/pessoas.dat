@@ -1,0 +1,3 @@
+pessoa(1, 'Vitor').
+pessoa(2, 'Carlos').
+pessoa(3, 'Costa').

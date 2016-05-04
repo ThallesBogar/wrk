@@ -1,0 +1,74 @@
+#+TITLE: Impatiant
+#+AUTHOR: Thalles
+O impatiant mode permite que o usuário possa fazer modificações em arquivos html em tempo real pelo próprio emacs.
+
+* Passos Gerais:
+ Primeiramente para que o impatiant mode funcione são necessário os seguintes passos:
+   - Configurar o emacs.
+
+
+   - Clonar os arquivos que foram configurados no passo anterior.
+
+
+   - Executar o impediant no emacs.
+
+** Configurando o emacs:
+   - Primeiramente abra o terminal pressionando CTRL+ALT+T.
+
+
+   - Digite no terminal o seguinte comando:
+file:1.png
+
+     Deverá aparecer uma tela parecida com essa:
+
+file:2.png
+
+OBS: Não se preocupe se no seu arquivo .emacs não tiver nada escrito.
+
+
+   - Agora basta adicionar as seguintes linhas no arquivo:
+file:3.png
+
+Pronto, seu emacs está configurado para rodar o Impatient-Mode.
+
+** Baixando os Pacotes
+ Agora, precisamos baixar os pacotes necessários que são: impatient-mode, 
+emacs-web-server e  htmlize.el. Antes de prosseguir, será necessário o uso 
+do programa "git" para fazer o download desses pacotes. Para instalar o git,
+basta abrir o terminal novamente e digitar o seguinte comando:
+
+file:4.png
+
+
+       1) Impatient-Mode
+                - Primeiramente devemos navegar até a pasta .emacs.d. Abra o terminal novamente e digite o seguinte comando:
+file:5.png
+
+
+                - Agora basta fazer o download do pacote. Para isso, digite  o seguinte comando:
+file:6.png
+
+       2) emacs-web-server
+                - Novamente devemos navegar até a pasta .emacs.d. Abra o terminal e digite o seguinte comando:
+file:5.png
+
+                - Agora é só fazer o download do pacote emacs-web-server. Abra o terminal e digite:
+file:7.png
+
+       3) htmlize.el
+                - Navegue até a pasta .emacs.d com o comando:
+file:5.png
+
+                - Abra o terminal e digite o seguinte comando para fazer o download do htmlize.el:
+file:8.png
+
+                - Agora só falta copiar o arquivo htmlize para dentro da pasta emacs-web-server. Para isso, digite o seguinte comando:
+file:9.png
+
+Pronto, todos os pacotes necessários foram devidamente baixados para sua máquina.
+
+
+** Executando o Impadiant
+Agora basta executarmos o impediant no emacs. Para isso, abra o emacs e pressione ALT+X e depois digite: impediant-mode, pressione ENTER. ALT+X novamente e digite: httpd-start, pressione ENTER.
+
+Well Done, seu emacs está pronto para utilizar os recursos do impediant-mode!!
