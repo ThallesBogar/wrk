@@ -25,7 +25,6 @@ insertTable([empregado(Num, Nome, Departamento)|Ts]) :-
     insertTable(Ts).
 
 
-
 main(Argv) :-
     [A|_] = Argv, 
     file_terms(A, Terms),
