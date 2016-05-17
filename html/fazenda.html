@@ -87,47 +87,47 @@
 					        		<h4 class="modal-title">Registro de Compra</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form method="get" class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputCompraData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputCompraData" name⁼"data" placeholder="Data da Compra ">
+												<input type="date" class="form-control" id="inputCompraData" name="data" placeholder="Data da Compra ">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputCompraQuantidade" class="control-label col-xs-2">Quantidade: </label>
 											<div class="col-xs-10">
-												<input type="number" class="form-control" id="inputCompraQuantidade" placeholder="Quantidade de Gado Comprado">
+												<input type="number" class="form-control" id="inputCompraQuantidade" name="quantidade" placeholder="Quantidade de Gado Comprado">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputCompraPasto" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputCompraPasto" placeholder="Pasto de Entrada">
+												<input type="text" class="form-control" id="inputCompraPasto" name="pasto" placeholder="Pasto de Entrada">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputCompraIdade" class="control-label col-xs-2">Idade: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputCompraIdade" placeholder="Idade do Gado Comprado">
+												<input type="text" class="form-control" id="inputCompraIdade" name="idade" placeholder="Idade do Gado Comprado">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputCompraVendedor" class="control-label col-xs-2">Vendedor: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputCompraVendedor" placeholder="Quem Vendeu o Gado">
+												<input type="text" class="form-control" id="inputCompraVendedor" name="vendedor" placeholder="Quem Vendeu o Gado">
 											</div>
-										</div>
+										</div>										
+										<div class="modal-footer">
+					        				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					        				<button type='submit' class="btn btn-success">Salvar</button>				        		
+					      				</div>	
 									</form>
 								</div>							
-					      		<div class="modal-footer">
-					        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					        		<button type="input" class="btn btn-success" onclick="fazenda.pl">Salvar</button>
-					      		</div>			    				
 							</div>
 						</div>
 					</div>
@@ -141,47 +141,47 @@
 					        		<h4 class="modal-title">Registro de Venda</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputVendaData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputVendaData" placeholder="Data da Venda ">
+												<input type="date" class="form-control" id="inputVendaData" name="data" placeholder="Data da Venda ">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputVendaQuantidade" class="control-label col-xs-2">Quantidade: </label>
 											<div class="col-xs-10">
-												<input type="number" class="form-control" id="inputVendaQuantidade" placeholder="Quantidade de Gado Vendido">
+												<input type="number" class="form-control" id="inputVendaQuantidade" name="quantidade" placeholder="Quantidade de Gado Vendido">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputVendaPasto" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputVendaPasto" placeholder="Pasto de Saida">
+												<input type="text" class="form-control" id="inputVendaPasto" name="pasto" placeholder="Pasto de Saida">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputVendaIdade" class="control-label col-xs-2">Idade: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputVendaIdade" placeholder="Idade do Gado Vendido">
+												<input type="text" class="form-control" id="inputVendaIdade" name="idade" placeholder="Idade do Gado Vendido">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputVendaComprador" class="control-label col-xs-2">Comprador: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputVendaComprador" placeholder="Quem Comprou o Gado">
+												<input type="text" class="form-control" id="inputVendaComprador" name="comprador" placeholder="Quem Comprou o Gado">
 											</div>
 										</div>
-									</form>
-								</div>							
-							      		<div class="modal-footer">
+										<div class="modal-footer">
 							        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-							        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-							      		</div>			    				
+							        		<button type="submit" class="btn btn-success">Salvar</button>
+							      		</div>	
+									</form>
+								</div>														      				
 							</div>
 						</div>
 					</div>
@@ -195,48 +195,47 @@
 					        		<h4 class="modal-title">Registro de Venda</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputMorteData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputMorteData" placeholder="Data da Morte ">
+												<input type="date" class="form-control" id="inputMorteData" name="data" placeholder="Data da Morte ">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputMorteCausa" class="control-label col-xs-2">Causa: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputMorteCausa" placeholder="Causa da Morte do Gado">
+												<input type="text" class="form-control" id="inputMorteCausa" name="causa" placeholder="Causa da Morte do Gado">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputMorteQuantidade" class="control-label col-xs-2">Quantidade: </label>
 											<div class="col-xs-10">
-												<input type="number" class="form-control" id="inputMorteQuantidade" placeholder="Quantidade de Gado Morto">
+												<input type="number" class="form-control" id="inputMorteQuantidade" name="quantidade" placeholder="Quantidade de Gado Morto">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputMortePasto" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputMortePasto" placeholder="Pasto de Saida">
+												<input type="text" class="form-control" id="inputMortePasto" name="pasto" placeholder="Pasto de Saida">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputMorteIdade" class="control-label col-xs-2">Idade: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputMorteIdade" placeholder="Idade do Gado Morto">
+												<input type="text" class="form-control" id="inputMorteIdade" name="idade" placeholder="Idade do Gado Morto">
 											</div>
 										</div>
-
+										<div class="modal-footer">
+							        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+							        		<button type="submit" class="btn btn-success">Salvar</button>
+							      		</div>	
 									</form>
 								</div>							
-							      		<div class="modal-footer">
-							        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-							        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-							      		</div>			    				
 							</div>
 						</div>
 					</div>
@@ -314,40 +313,40 @@
 					        		<h4 class="modal-title">Registro de Manejo</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputManejoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputManejoData" placeholder="Data de Saída do Gado ">
+												<input type="date" class="form-control" id="inputManejoData" name="data" placeholder="Data de Saída do Gado ">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputManejoPasto" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputManejoPasto" placeholder="Pasto de Destino do Gado">
+												<input type="text" class="form-control" id="inputManejoPasto" name="pasto" placeholder="Pasto de Destino do Gado">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputManejoQuantidade" class="control-label col-xs-2">Quantidade: </label>
 											<div class="col-xs-10">
-												<input type="number" class="form-control" id="inputManejoQuantidade" placeholder="Quantidade de Gado Remanejado">
+												<input type="number" class="form-control" id="inputManejoQuantidade" name="quantidade" placeholder="Quantidade de Gado Remanejado">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputManejoIdade" class="control-label col-xs-2">Idade: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputManejoIdade" placeholder="Idade do Gado Remanejado">
+												<input type="text" class="form-control" id="inputManejoIdade" name="idade" placeholder="Idade do Gado Remanejado">
 											</div>
 										</div>
+										<div class="modal-footer">
+					        				<button type="button" class="btn btn-danger" onclick="">Cancelar</button>
+					        				<button type="submit" class="btn btn-success" onclick="">Salvar</button>
+					      				</div>	
 									</form>
-								</div>							
-					      		<div class="modal-footer">
-					        		<button type="button" class="btn btn-danger" onclick="">Cancelar</button>
-					        		<button type="button" class="btn btn-success" onclick="">Salvar</button>
-					      		</div>			    				
+								</div>									    				
 							</div>
 						</div>
 					</div>
@@ -361,26 +360,26 @@
 					        		<h4 class="modal-title">Registro de Trato de Pasto</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputTratoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputTratoData" placeholder="Data da Realização do Trato">
+												<input type="date" class="form-control" id="inputTratoData" name="data" placeholder="Data da Realização do Trato">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputTratoTipo" class="control-label col-xs-2">Tipo: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputTratoTipo" placeholder="Tipo do Trato Realizado">
+												<input type="text" class="form-control" id="inputTratoTipo" name="tipo" placeholder="Tipo do Trato Realizado">
 											</div>
-										</div>							
+										</div>
+										<div class="modal-footer">
+					        				<button type="button" class="btn btn-danger">Cancelar</button>
+					        				<button type="submit" class="btn btn-success">Salvar</button>
+					      				</div>							
 									</form>
 								</div>							
-					      		<div class="modal-footer">
-					        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-					      		</div>			    				
 							</div>
 						</div>
 					</div>
@@ -394,26 +393,26 @@
 					        		<h4 class="modal-title">Registro de Manutenção</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputManutencaoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputManutencaoData" placeholder="Data de Realizacao da Manutenção">
+												<input type="date" class="form-control" id="inputManutencaoData" name="data" placeholder="Data de Realizacao da Manutenção">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputManutencaoTipo" class="control-label col-xs-2">Tipo: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputManutencaoTipo" placeholder="Tipo da Manutenção Realizada">
+												<input type="text" class="form-control" id="inputManutencaoTipo" name="tipo" placeholder="Tipo da Manutenção Realizada">
 											</div>
-										</div>							
+										</div>
+										<div class="modal-footer">
+					        				<button type="button" class="btn btn-danger">Cancelar</button>
+					        				<button type="submit" class="btn btn-success">Salvar</button>
+					      				</div>							
 									</form>
-								</div>							
-					      		<div class="modal-footer">
-					        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-					      		</div>			    				
+								</div>										    				
 							</div>
 						</div>
 					</div>
@@ -467,49 +466,47 @@
 					        		<h4 class="modal-title">Adicionar Maquina</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputAdicionarData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputAdicionarData" placeholder="Data de Aquisicao">
+												<input type="date" class="form-control" id="inputAdicionarData" name="data" placeholder="Data de Aquisicao">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputAdicionarTipo" class="control-label col-xs-2">Tipo: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputAdicionarTipo" placeholder="Tipo da Maquina">
+												<input type="text" class="form-control" id="inputAdicionarTipo" name="tipo" placeholder="Tipo da Maquina">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputAdicionarMarca" class="control-label col-xs-2">Marca: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputAdicionarMarca" placeholder="Marca da Maquina">
+												<input type="text" class="form-control" id="inputAdicionarMarca" name="marca" placeholder="Marca da Maquina">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputAdicionarGarantia" class="control-label col-xs-2">Garantia: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputAdicionarGarantia" placeholder="Tempo de Garatia da Maquina">
+												<input type="text" class="form-control" id="inputAdicionarGarantia" name="garantia" placeholder="Tempo de Garatia da Maquina">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputAdicionarQuantidade" class="control-label col-xs-2">Quantidade: </label>
 											<div class="col-xs-10">
-												<input type="number" class="form-control" id="inputAdicionarQuantidade" placeholder="Quantidade de Maquinas">
+												<input type="number" class="form-control" id="inputAdicionarQuantidade" name=quantidade placeholder="Quantidade de Maquinas">
 											</div>
 										</div>
-
-
+										<div class="modal-footer">
+							        		<button type="button" class="btn btn-danger">Cancelar</button>
+							        		<button type="submit" class="btn btn-success">Salvar</button>
+							      		</div>	
 									</form>
-								</div>							
-							      		<div class="modal-footer">
-							        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-							        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-							      		</div>			    				
+								</div>									    				
 							</div>
 						</div>
 					</div>
@@ -523,26 +520,25 @@
 					        		<h4 class="modal-title">Remover Maquina</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputRemoverData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputRemoverData" placeholder="Data de Remocao">
+												<input type="date" class="form-control" id="inputRemoverData" name="data" placeholder="Data de Remocao">
 											</div>
-										</div>
-
+										</div> 
 										<div class="form-group">
 											<label for="inputRemoverMotivo" class="control-label col-xs-2">Motivo: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputRemoverMotivo" placeholder="Motivo da Retirada da Maquina">
+												<input type="text" class="form-control" id="inputRemoverMotivo" name="motivo" placeholder="Motivo da Retirada da Maquina">
 											</div>
-										</div>									
+										</div>
+										<div class="modal-footer">
+							        		<button type="button" class="btn btn-danger">Cancelar</button>
+							        		<button type="submit" class="btn btn-success">Salvar</button>
+							      		</div>										
 									</form>
-								</div>							
-							      		<div class="modal-footer">
-							        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-							        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-							      		</div>			    				
+								</div>									    				
 							</div>
 						</div>
 					</div>
@@ -556,26 +552,26 @@
 					        		<h4 class="modal-title">Emprestimo de Maquina</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputEmprestimoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputEmprestimoData" placeholder="Data do Emprestimo">
+												<input type="date" class="form-control" id="inputEmprestimoData" name="data" placeholder="Data do Emprestimo">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputEmprestimoPara" class="control-label col-xs-2">Para: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputEmprestimoPara" placeholder="Pessoa ou Empresa para quem esta Emprestando">
+												<input type="text" class="form-control" id="inputEmprestimoPara" name="para" placeholder="Pessoa ou Empresa para quem esta Emprestando">
 											</div>
-										</div>									
+										</div>	
+										<div class="modal-footer">
+							        		<button type="button" class="btn btn-danger">Cancelar</button>
+							        		<button type="submit" class="btn btn-success">Salvar</button>
+							      		</div>								
 									</form>
-								</div>							
-							      		<div class="modal-footer">
-							        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-							        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-							      		</div>
+								</div>														      		
 				      		</div>			    				
 						</div>
 					</div>
@@ -589,19 +585,19 @@
 					        		<h4 class="modal-title">Devolucao de Maquina</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form class="form-horizontal">
+					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputDevolucaoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputDevolucaoData" placeholder="Data da Devolucao">
+												<input type="date" class="form-control" id="inputDevolucaoData" name="data" placeholder="Data da Devolucao">
 											</div>
-										</div>													
+										</div>
+										<div class="modal-footer">
+							        		<button type="button" class="btn btn-danger">Cancelar</button>
+							        		<button type="submit" class="btn btn-success">Salvar</button>
+							      		</div>													
 									</form>
-								</div>															
-							      		<div class="modal-footer">
-							        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-							        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
-							      		</div>
+								</div>																						      	
 				      		</div>
 			      		</div>
 		      		</div>				      					    										
