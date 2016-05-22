@@ -1,3 +1,5 @@
-main(Args) :-
-    write('Content-type: text/html'),
-    write('Hello').
+main :-
+    write('Content-type: text/html'), nl, nl,
+    write('<HTML>'),
+    write('Hello world.'),
+    write('</HTML>').
