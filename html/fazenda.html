@@ -4,6 +4,7 @@
     	<link href="css/bootstrap.min.css" rel="stylesheet">
     	<link rel="stylesheet" type="text/css" href="css/fazenda.css">
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    	<title>Fazenda</title>
   	</head>
 
   	<body>
@@ -87,27 +88,78 @@
 					        		<h4 class="modal-title">Registro de Compra</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form action='fazenda.pl' method='GET' class="form-horizontal">
+					        		<form name="compraForm" action="/compra" method='get' onsubmit="return validateCompraForm()" class="form-horizontal">
 										<div class="form-group">
 											<label for="inputCompraData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
-												<input type="date" class="form-control" id="inputCompraData" name="data" placeholder="Data da Compra ">
+												<input type="date" class="form-control" id="inputCompraData" name="data" id="dataCompra" placeholder="Data da Compra ">
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label for="inputCompraQuantidade" class="control-label col-xs-2">Quantidade: </label>
 											<div class="col-xs-10">
-												<input type="number" class="form-control" id="inputCompraQuantidade" name="quantidade" placeholder="Quantidade de Gado Comprado">
+												<input type="number" class="form-control" id="inputCompraQuantidade" name="quantidade" id="quantidadeCompra" placeholder="Quantidade de Gado Comprado">
 											</div>
 										</div>
 
 										<div class="form-group">
-											<label for="inputCompraPasto" class="control-label col-xs-2">Pasto: </label>
+											<label for="selectPastoCompra" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputCompraPasto" name="pasto" placeholder="Pasto de Entrada">
+												<select id="selectCompra" class="form-control selectPasto" name="pastodestino" onclick="gColor()">
+													<option value="0" disabled selected hidden>Selecione o Pasto de Destino</option>
+  													<option value="5 alqueres (1)">5 alqueres (1)</option>
+													<option value="5 alqueres (2)">5 alqueres (2)</option>
+													<option value="Alto Zé Doroteia">Alto Zé Doroteia</option>
+													<option value="Angelim">Angelim</option>
+													<option value="APP">APP</option>
+													<option value="APP">APP</option>
+													<option value="Aristeu pasto de cima">Aristeu pasto de cima</option>
+													<option value="Assis">Assis</option>
+													<option value="Barracão">Barracão</option>
+													<option value="Beatas divisa com Aristeu">Beatas divisa com Aristeu</option>
+													<option value="Beatas divisa com Assis">Beatas divisa com Assis</option>
+													<option value="Beatas divisa com Valdemar">Beatas divisa com Valdemar</option>
+													<option value="Beatas ribeirão divisa com Aristeu">Beatas ribeirão divisa com Aristeu</option>
+													<option value="Beatas ribeirão divisa com Valdemar">Beatas ribeirão divisa com Valdemar</option>
+													<option value="Casa Aristeu">Casa Aristeu</option>
+													<option value="Cidinha">Cidinha</option>
+													<option value="Depósito">Depósito</option>
+													<option value="Desbarrancado">Desbarrancado</option>
+													<option value="Divisa com Dona Nair">Divisa com Dona Nair</option>
+													<option value="Entrada da fazenda">Entrada da fazenda</option>
+													<option value="Ilson">Ilson</option>
+													<option value="Laís">Laís</option>
+													<option value="Milho Zé Doroteia">Milho Zé Doroteia</option>
+													<option value="Mombaça antiga casa">Mombaça antiga casa</option>
+													<option value="Mombaça corredor">Mombaça corredor</option>
+													<option value="Mombaça de cima da casa">Mombaça de cima da casa</option>
+													<option value="Mombaça entrada">Mombaça entrada</option>
+													<option value="Mombaça mato divisa com Carlinho">Mombaça mato divisa com Carlinho</option>
+													<option value="Mombaça mato divisa com sr. Divino">Mombaça mato divisa com sr. Divino</option>
+													<option value="Mombaça meio divisa com Carlinho">Mombaça meio divisa com Carlinho</option>
+													<option value="Mombaça meio divisa com sr. Divino">Mombaça meio divisa com sr. Divino</option>
+													<option value="Mombaça milho">Mombaça milho</option>
+													<option value="Neguta (silagem)">Neguta (silagem)</option>
+													<option value="Neguta beira ribeirão">Neguta beira ribeirão</option>
+													<option value="Neguta palhada">Neguta palhada</option>
+													<option value="Palhada (caixa d'água)">Palhada (caixa d'água)</option>
+													<option value="Porta da sede">Porta da sede</option>
+													<option value="Porta do Lindomar">Porta do Lindomar</option>
+													<option value="Resfriado">Resfriado</option>
+													<option value="Ribeirão Zé Doroteia (Divisa com Preto)">Ribeirão Zé Doroteia (Divisa com Preto)</option>
+													<option value="Roda d'água">Roda d'água</option>
+													<option value="Sede/Confinamento/Curral/Arreios cavalos/Leite">Sede/Confinamento/Curral/Arreios cavalos/Leite</option>
+													<option value="Serrinha">Serrinha</option>
+													<option value="Subsolado">Subsolado</option>
+													<option value="Valdemar alto">Valdemar alto</option>
+													<option value="Valdemar beira ribeirão">Valdemar beira ribeirão</option>
+													<option value="Valdemar casa">Valdemar casa</option>
+													<option value="Zé Doroteia divisa com Cidinha">Zé Doroteia divisa com Cidinha</option>
+												</select>
 											</div>
-										</div>
+										</div>								
+
 
 										<div class="form-group">
 											<label for="inputCompraIdade" class="control-label col-xs-2">Idade: </label>
@@ -141,7 +193,7 @@
 					        		<h4 class="modal-title">Registro de Venda</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form action='fazenda.pl' method='GET' class="form-horizontal">
+					        		<form name="vendaForm" action='/venda' method='GET' onsubmit="return validateVendaForm()" class="form-horizontal">
 										<div class="form-group">
 											<label for="inputVendaData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
@@ -157,11 +209,61 @@
 										</div>
 
 										<div class="form-group">
-											<label for="inputVendaPasto" class="control-label col-xs-2">Pasto: </label>
+											<label for="selectPastoVenda" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputVendaPasto" name="pasto" placeholder="Pasto de Saida">
+												<select class="form-control selectPasto" name="pastosaida" onclick="gColor()">
+													<option value="0" disabled selected hidden>Selecione o Pasto de Saída</option>
+  													<option value="5 alqueres (1)">5 alqueres (1)</option>
+													<option value="5 alqueres (2)">5 alqueres (2)</option>
+													<option value="Alto Zé Doroteia">Alto Zé Doroteia</option>
+													<option value="Angelim">Angelim</option>
+													<option value="APP">APP</option>
+													<option value="APP">APP</option>
+													<option value="Aristeu pasto de cima">Aristeu pasto de cima</option>
+													<option value="Assis">Assis</option>
+													<option value="Barracão">Barracão</option>
+													<option value="Beatas divisa com Aristeu">Beatas divisa com Aristeu</option>
+													<option value="Beatas divisa com Assis">Beatas divisa com Assis</option>
+													<option value="Beatas divisa com Valdemar">Beatas divisa com Valdemar</option>
+													<option value="Beatas ribeirão divisa com Aristeu">Beatas ribeirão divisa com Aristeu</option>
+													<option value="Beatas ribeirão divisa com Valdemar">Beatas ribeirão divisa com Valdemar</option>
+													<option value="Casa Aristeu">Casa Aristeu</option>
+													<option value="Cidinha">Cidinha</option>
+													<option value="Depósito">Depósito</option>
+													<option value="Desbarrancado">Desbarrancado</option>
+													<option value="Divisa com Dona Nair">Divisa com Dona Nair</option>
+													<option value="Entrada da fazenda">Entrada da fazenda</option>
+													<option value="Ilson">Ilson</option>
+													<option value="Laís">Laís</option>
+													<option value="Milho Zé Doroteia">Milho Zé Doroteia</option>
+													<option value="Mombaça antiga casa">Mombaça antiga casa</option>
+													<option value="Mombaça corredor">Mombaça corredor</option>
+													<option value="Mombaça de cima da casa">Mombaça de cima da casa</option>
+													<option value="Mombaça entrada">Mombaça entrada</option>
+													<option value="Mombaça mato divisa com Carlinho">Mombaça mato divisa com Carlinho</option>
+													<option value="Mombaça mato divisa com sr. Divino">Mombaça mato divisa com sr. Divino</option>
+													<option value="Mombaça meio divisa com Carlinho">Mombaça meio divisa com Carlinho</option>
+													<option value="Mombaça meio divisa com sr. Divino">Mombaça meio divisa com sr. Divino</option>
+													<option value="Mombaça milho">Mombaça milho</option>
+													<option value="Neguta (silagem)">Neguta (silagem)</option>
+													<option value="Neguta beira ribeirão">Neguta beira ribeirão</option>
+													<option value="Neguta palhada">Neguta palhada</option>
+													<option value="Palhada (caixa d'água)">Palhada (caixa d'água)</option>
+													<option value="Porta da sede">Porta da sede</option>
+													<option value="Porta do Lindomar">Porta do Lindomar</option>
+													<option value="Resfriado">Resfriado</option>
+													<option value="Ribeirão Zé Doroteia (Divisa com Preto)">Ribeirão Zé Doroteia (Divisa com Preto)</option>
+													<option value="Roda d'água">Roda d'água</option>
+													<option value="Sede/Confinamento/Curral/Arreios cavalos/Leite">Sede/Confinamento/Curral/Arreios cavalos/Leite</option>
+													<option value="Serrinha">Serrinha</option>
+													<option value="Subsolado">Subsolado</option>
+													<option value="Valdemar alto">Valdemar alto</option>
+													<option value="Valdemar beira ribeirão">Valdemar beira ribeirão</option>
+													<option value="Valdemar casa">Valdemar casa</option>
+													<option value="Zé Doroteia divisa com Cidinha">Zé Doroteia divisa com Cidinha</option>
+												</select>
 											</div>
-										</div>
+										</div>					
 
 										<div class="form-group">
 											<label for="inputVendaIdade" class="control-label col-xs-2">Idade: </label>
@@ -192,10 +294,10 @@
 				  			<div class="modal-content">
 					      		<div class="modal-header">
 					        		<button type="button" class="close" data-dismiss="modal">&times;</button>
-					        		<h4 class="modal-title">Registro de Venda</h4>
+					        		<h4 class="modal-title">Registro de Morte</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
+					        		<form name="morteForm" action='/morte' method='GET' onsubmit="return validateMorteForm()" class="form-horizontal">
 										<div class="form-group">
 											<label for="inputMorteData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
@@ -218,9 +320,59 @@
 										</div>
 
 										<div class="form-group">
-											<label for="inputMortePasto" class="control-label col-xs-2">Pasto: </label>
+											<label for="selectPastoMorte" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputMortePasto" name="pasto" placeholder="Pasto de Saida">
+												<select class="form-control selectPasto" name="pastosaida" onclick="gColor()">
+													<option value="0" disabled selected hidden>Selecione o Pasto de Saída</option>
+  													<option value="5 alqueres (1)">5 alqueres (1)</option>
+													<option value="5 alqueres (2)">5 alqueres (2)</option>
+													<option value="Alto Zé Doroteia">Alto Zé Doroteia</option>
+													<option value="Angelim">Angelim</option>
+													<option value="APP">APP</option>
+													<option value="APP">APP</option>
+													<option value="Aristeu pasto de cima">Aristeu pasto de cima</option>
+													<option value="Assis">Assis</option>
+													<option value="Barracão">Barracão</option>
+													<option value="Beatas divisa com Aristeu">Beatas divisa com Aristeu</option>
+													<option value="Beatas divisa com Assis">Beatas divisa com Assis</option>
+													<option value="Beatas divisa com Valdemar">Beatas divisa com Valdemar</option>
+													<option value="Beatas ribeirão divisa com Aristeu">Beatas ribeirão divisa com Aristeu</option>
+													<option value="Beatas ribeirão divisa com Valdemar">Beatas ribeirão divisa com Valdemar</option>
+													<option value="Casa Aristeu">Casa Aristeu</option>
+													<option value="Cidinha">Cidinha</option>
+													<option value="Depósito">Depósito</option>
+													<option value="Desbarrancado">Desbarrancado</option>
+													<option value="Divisa com Dona Nair">Divisa com Dona Nair</option>
+													<option value="Entrada da fazenda">Entrada da fazenda</option>
+													<option value="Ilson">Ilson</option>
+													<option value="Laís">Laís</option>
+													<option value="Milho Zé Doroteia">Milho Zé Doroteia</option>
+													<option value="Mombaça antiga casa">Mombaça antiga casa</option>
+													<option value="Mombaça corredor">Mombaça corredor</option>
+													<option value="Mombaça de cima da casa">Mombaça de cima da casa</option>
+													<option value="Mombaça entrada">Mombaça entrada</option>
+													<option value="Mombaça mato divisa com Carlinho">Mombaça mato divisa com Carlinho</option>
+													<option value="Mombaça mato divisa com sr. Divino">Mombaça mato divisa com sr. Divino</option>
+													<option value="Mombaça meio divisa com Carlinho">Mombaça meio divisa com Carlinho</option>
+													<option value="Mombaça meio divisa com sr. Divino">Mombaça meio divisa com sr. Divino</option>
+													<option value="Mombaça milho">Mombaça milho</option>
+													<option value="Neguta (silagem)">Neguta (silagem)</option>
+													<option value="Neguta beira ribeirão">Neguta beira ribeirão</option>
+													<option value="Neguta palhada">Neguta palhada</option>
+													<option value="Palhada (caixa d'água)">Palhada (caixa d'água)</option>
+													<option value="Porta da sede">Porta da sede</option>
+													<option value="Porta do Lindomar">Porta do Lindomar</option>
+													<option value="Resfriado">Resfriado</option>
+													<option value="Ribeirão Zé Doroteia (Divisa com Preto)">Ribeirão Zé Doroteia (Divisa com Preto)</option>
+													<option value="Roda d'água">Roda d'água</option>
+													<option value="Sede/Confinamento/Curral/Arreios cavalos/Leite">Sede/Confinamento/Curral/Arreios cavalos/Leite</option>
+													<option value="Serrinha">Serrinha</option>
+													<option value="Subsolado">Subsolado</option>
+													<option value="Valdemar alto">Valdemar alto</option>
+													<option value="Valdemar beira ribeirão">Valdemar beira ribeirão</option>
+													<option value="Valdemar casa">Valdemar casa</option>
+													<option value="Zé Doroteia divisa com Cidinha">Zé Doroteia divisa com Cidinha</option>
+												</select>
 											</div>
 										</div>
 
@@ -297,8 +449,7 @@
 					  				<button id="manutencaoButton" class="btn btn-primary" onclick="manutencaoClick()">Manutenção</button>					  				
 								</div>							
 					      		<div class="modal-footer">
-					        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					        		<button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
+					        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>	        		
 					      		</div>			    				
 							</div>
 						</div>
@@ -313,7 +464,7 @@
 					        		<h4 class="modal-title">Registro de Manejo</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
+					        		<form action="/manejo" name="manejoForm" onsubmit="return validateManejoForm()" method='get' class="form-horizontal">
 										<div class="form-group">
 											<label for="inputManejoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
@@ -322,9 +473,59 @@
 										</div>
 
 										<div class="form-group">
-											<label for="inputManejoPasto" class="control-label col-xs-2">Pasto: </label>
+											<label for="selectPastoManejo" class="control-label col-xs-2">Pasto: </label>
 											<div class="col-xs-10">
-												<input type="text" class="form-control" id="inputManejoPasto" name="pasto" placeholder="Pasto de Destino do Gado">
+												<select class="form-control selectPasto" name="pastodestino" onclick="gColor()">
+													<option value="0" disabled selected hidden>Selecione o Pasto de Destino</option>
+  													<option value="5 alqueres (1)">5 alqueres (1)</option>
+													<option value="5 alqueres (2)">5 alqueres (2)</option>
+													<option value="Alto Zé Doroteia">Alto Zé Doroteia</option>
+													<option value="Angelim">Angelim</option>
+													<option value="APP">APP</option>
+													<option value="APP">APP</option>
+													<option value="Aristeu pasto de cima">Aristeu pasto de cima</option>
+													<option value="Assis">Assis</option>
+													<option value="Barracão">Barracão</option>
+													<option value="Beatas divisa com Aristeu">Beatas divisa com Aristeu</option>
+													<option value="Beatas divisa com Assis">Beatas divisa com Assis</option>
+													<option value="Beatas divisa com Valdemar">Beatas divisa com Valdemar</option>
+													<option value="Beatas ribeirão divisa com Aristeu">Beatas ribeirão divisa com Aristeu</option>
+													<option value="Beatas ribeirão divisa com Valdemar">Beatas ribeirão divisa com Valdemar</option>
+													<option value="Casa Aristeu">Casa Aristeu</option>
+													<option value="Cidinha">Cidinha</option>
+													<option value="Depósito">Depósito</option>
+													<option value="Desbarrancado">Desbarrancado</option>
+													<option value="Divisa com Dona Nair">Divisa com Dona Nair</option>
+													<option value="Entrada da fazenda">Entrada da fazenda</option>
+													<option value="Ilson">Ilson</option>
+													<option value="Laís">Laís</option>
+													<option value="Milho Zé Doroteia">Milho Zé Doroteia</option>
+													<option value="Mombaça antiga casa">Mombaça antiga casa</option>
+													<option value="Mombaça corredor">Mombaça corredor</option>
+													<option value="Mombaça de cima da casa">Mombaça de cima da casa</option>
+													<option value="Mombaça entrada">Mombaça entrada</option>
+													<option value="Mombaça mato divisa com Carlinho">Mombaça mato divisa com Carlinho</option>
+													<option value="Mombaça mato divisa com sr. Divino">Mombaça mato divisa com sr. Divino</option>
+													<option value="Mombaça meio divisa com Carlinho">Mombaça meio divisa com Carlinho</option>
+													<option value="Mombaça meio divisa com sr. Divino">Mombaça meio divisa com sr. Divino</option>
+													<option value="Mombaça milho">Mombaça milho</option>
+													<option value="Neguta (silagem)">Neguta (silagem)</option>
+													<option value="Neguta beira ribeirão">Neguta beira ribeirão</option>
+													<option value="Neguta palhada">Neguta palhada</option>
+													<option value="Palhada (caixa d'água)">Palhada (caixa d'água)</option>
+													<option value="Porta da sede">Porta da sede</option>
+													<option value="Porta do Lindomar">Porta do Lindomar</option>
+													<option value="Resfriado">Resfriado</option>
+													<option value="Ribeirão Zé Doroteia (Divisa com Preto)">Ribeirão Zé Doroteia (Divisa com Preto)</option>
+													<option value="Roda d'água">Roda d'água</option>
+													<option value="Sede/Confinamento/Curral/Arreios cavalos/Leite">Sede/Confinamento/Curral/Arreios cavalos/Leite</option>
+													<option value="Serrinha">Serrinha</option>
+													<option value="Subsolado">Subsolado</option>
+													<option value="Valdemar alto">Valdemar alto</option>
+													<option value="Valdemar beira ribeirão">Valdemar beira ribeirão</option>
+													<option value="Valdemar casa">Valdemar casa</option>
+													<option value="Zé Doroteia divisa com Cidinha">Zé Doroteia divisa com Cidinha</option>
+												</select>
 											</div>
 										</div>
 
@@ -341,10 +542,11 @@
 												<input type="text" class="form-control" id="inputManejoIdade" name="idade" placeholder="Idade do Gado Remanejado">
 											</div>
 										</div>
+										<input type="hidden" name="pastosaida" id="inputManejoPastoSaida">	
 										<div class="modal-footer">
-					        				<button type="button" class="btn btn-danger" onclick="">Cancelar</button>
-					        				<button type="submit" class="btn btn-success" onclick="">Salvar</button>
-					      				</div>	
+					        				<button type="button" class="btn btn-danger">Cancelar</button>
+					        				<button type="submit" class="btn btn-success">Salvar</button>
+					      				</div>
 									</form>
 								</div>									    				
 							</div>
@@ -360,7 +562,7 @@
 					        		<h4 class="modal-title">Registro de Trato de Pasto</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
+					        		<form name="tratoForm" action='/trato' method='GET' onsubmit="return validateTratoForm()" class="form-horizontal">
 										<div class="form-group">
 											<label for="inputTratoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
@@ -374,6 +576,7 @@
 												<input type="text" class="form-control" id="inputTratoTipo" name="tipo" placeholder="Tipo do Trato Realizado">
 											</div>
 										</div>
+										<input type="hidden" name="pasto" id="inputTratoPastoSaida">
 										<div class="modal-footer">
 					        				<button type="button" class="btn btn-danger">Cancelar</button>
 					        				<button type="submit" class="btn btn-success">Salvar</button>
@@ -393,7 +596,7 @@
 					        		<h4 class="modal-title">Registro de Manutenção</h4>
 					      		</div>
 					      		<div class="modal-body">
-					        		<form action='QueryString.cgi' method='GET' class="form-horizontal">
+					        		<form name="manutencaoForm" action='/manutencao' method='GET' onsubmit="return validateManutencaoForm()" class="form-horizontal">
 										<div class="form-group">
 											<label for="inputManutencaoData" class="control-label col-xs-2">Data: </label>
 											<div class="col-xs-10">
@@ -407,6 +610,7 @@
 												<input type="text" class="form-control" id="inputManutencaoTipo" name="tipo" placeholder="Tipo da Manutenção Realizada">
 											</div>
 										</div>
+										<input type="hidden" name="pasto" id="inputManutencaoPastoSaida">
 										<div class="modal-footer">
 					        				<button type="button" class="btn btn-danger">Cancelar</button>
 					        				<button type="submit" class="btn btn-success">Salvar</button>
