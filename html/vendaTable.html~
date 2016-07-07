@@ -1,0 +1,6 @@
+<script>
+  <!-- tmpl_loop historicoVenda -->
+  window.parent.addLineCompra("<!-- tmpl_var data -->", "<!-- tmpl_var quantidade -->", "<!-- tmpl_var pastodestino -->", "<!-- tmpl_var idade -->", "<!-- tmpl_var comprador -->");
+  <!-- /tmpl_loop -->
+</script>
+

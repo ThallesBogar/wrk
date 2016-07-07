@@ -30,6 +30,8 @@ function displayVenda(){
 	$("#HistoricoTrato").css("display", "none");
 	$("#HistoricoManutencao").css("display", "none");
 	$("#HistoricoGadoVenda").css("display", "initial");
+	$("#HistoricoGadoVenda table tbody tr").remove();
+	document.getElementById("gambiarraFrame").src = "/vendaTable.html";
 }
 
 function displayManejo(){
@@ -43,6 +45,8 @@ function displayManejo(){
 	$("#HistoricoTrato").css("display", "none");
 	$("#HistoricoManutencao").css("display", "none");
 	$("#HistoricoGadoManejo").css("display", "initial");
+	$("#HistoricoGadoManejo table tbody tr").remove();
+	document.getElementById("gambiarraFrame").src = "/manejoTable.html";
 }
 
 function displayMorte(){
@@ -56,6 +60,8 @@ function displayMorte(){
 	$("#HistoricoTrato").css("display", "none");
 	$("#HistoricoManutencao").css("display", "none");
 	$("#HistoricoGadoMorte").css("display", "initial");
+	$("#HistoricoGadoMorte table tbody tr").remove();
+	document.getElementById("gambiarraFrame").src = "/morteTable.html";
 }
 
 function displayTrato(){
@@ -69,6 +75,8 @@ function displayTrato(){
 	$("#HistoricoMaquinarioAdicao").css("display", "none");
 	$("#HistoricoManutencao").css("display", "none");
 	$("#HistoricoTrato").css("display", "initial");
+	$("#HistoricoTrato table tbody tr").remove();
+	document.getElementById("gambiarraFrame").src = "/tratoTable.html";
 }
 
 function displayManutencao(){
@@ -82,6 +90,8 @@ function displayManutencao(){
 	$("#HistoricoMaquinarioDevolucao").css("display", "none");
 	$("#HistoricoMaquinarioAdicao").css("display", "none");
 	$("#HistoricoManutencao").css("display", "initial");
+	$("#HistoricoManutencao table tbody tr").remove();
+	document.getElementById("gambiarraFrame").src = "/manutencaoTable.html";
 }
 
 function displayAdicao(){
@@ -238,6 +248,79 @@ function manutencaoClick(){
 function gColor(){
 	$(".selectPasto").css("color", "#555");
 }
+
+function setHistoricoCompraURL(){
+	location.href = "historicoCompra"
+}
+
+function addLineCompra(data, quantidade, pastoDestino, idade, vendedor){
+	if(data != "")
+		$("#HistoricoGadoCompra table tbody ").append("<tr>" + 
+										  				"<td>"+data+"</td>" + 
+										  				"<td>"+quantidade+"</td>" +
+										  				"<td>"+pastoDestino+"</td>" +
+										  				"<td>"+idade+"</td>" +
+										  				"<td>"+vendedor+"</td>" +
+									  				  "</tr>");	
+}
+
+function addLineVenda(data, quantidade, pastoSaida, idade, vendedor){
+	if(data != "")
+		$("#HistoricoGadoVenda table tbody ").append("<tr>" + 
+										  				"<td>"+data+"</td>" + 
+										  				"<td>"+quantidade+"</td>" +
+										  				"<td>"+pastoSaida+"</td>" +
+										  				"<td>"+idade+"</td>" +
+										  				"<td>"+vendedor+"</td>" +
+									  				  "</tr>");	
+}
+
+function addLineManejo(data, pastodestino, quantidade, idade, pastosaida){
+	if(data != "")
+		$("#HistoricoGadoManejo table tbody ").append("<tr>" + 
+										  				"<td>"+data+"</td>" + 
+										  				"<td>"+pastodestino+"</td>" +
+										  				"<td>"+quantidade+"</td>" +
+										  				"<td>"+idade+"</td>" +
+										  				"<td>"+pastosaida+"</td>" +
+									  				  "</tr>");	
+}
+
+function addLineMorte(data, causa, quantidade, pastosaida, idade){
+	if(data != "")
+		$("#HistoricoGadoMorte table tbody ").append("<tr>" + 
+										  				"<td>"+data+"</td>" + 
+										  				"<td>"+causa+"</td>" +
+										  				"<td>"+quantidade+"</td>" +
+										  				"<td>"+pastosaida+"</td>" +
+										  				"<td>"+idade+"</td>" +
+									  				  "</tr>");	
+}
+
+function addLineTrato(data, tipo, pasto){
+	if(data != "")
+		$("#HistoricoTrato table tbody ").append("<tr>" + 
+										  				"<td>"+data+"</td>" + 
+										  				"<td>"+tipo+"</td>" +
+										  				"<td>"+pasto+"</td>" +
+									  				  "</tr>");	
+}
+
+function addLineManutencao(data, tipo, pasto){
+	if(data != "")
+		$("#HistoricoManutencao table tbody ").append("<tr>" + 
+										  				"<td>"+data+"</td>" + 
+										  				"<td>"+tipo+"</td>" +
+										  				"<td>"+pasto+"</td>" +
+									  				  "</tr>");	
+}
+
+function updateCompraTable(){
+	$("#HistoricoGadoCompra table tbody tr").remove();
+	document.getElementById("gambiarraFrame").src = "/compraTable.html";
+}
+
+
 
 function validateCompraForm(){
 	var a = document.forms["compraForm"]["data"].value;

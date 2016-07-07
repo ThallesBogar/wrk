@@ -1,6 +1,6 @@
-(ql:quickload '(hunchentoot cl-who cl-mongo))
+(ql:quickload '(hunchentoot cl-who cl-mongo parenscript))
 (defpackage :retro-games
-  (:use :cl :cl-who :cl-mongo :hunchentoot))
+  (:use :cl :cl-who :cl-mongo :hunchentoot :parenscript))
 
 (in-package :retro-games)
 
@@ -40,19 +40,35 @@
 
 
 (defun compra-from-data (quantidade)
-  (let ( (found-compra  (docs (db.find *compra-collection*
-				      ($ "quantidade" quantidade)))))
+  (let ( (found-compra  (docs (db.find *compra-collection* 
+				       ($ "quantidade" quantidade)))))
     (when found-compra
       (doc->compra found-compra))))
+
+(defun findCompra ()
+  (let ( (found-compra (docs (db.find *compra-collection* :all))))
+    (list-length found-compra)))
+
+
+
+(defun printCompraAll ()
+  (let ( (found-compra (docs (db.find *compra-collection* :all))))
+    (loop for compra in found-compra do (format t "~a~%" (doc->compra compra)))))
+
+
+(defjs map-idade ()
+  (emit this.idade 1))
+
+
+
+;;(defjs reduce-idade (c vals)
+  ;;(return ((@ Array sum vals))))
+
+
+
+(defun map-reduce ()
+  (pp (mr.p ($map-reduce "compra" map-idade reduce-idade))))
 
 
 (defun compra-exists? (quantidade)
   (compra-from-data quantidade))
-
-
-(defmethod print-object ((object compra) stream)
-  (print-unreadable-object (object stream :type t)
-			   (with-slots (data quantidade) object
-				       (format stream "Data:~s and Quantidade:~s" data quantidade))))
-
-

@@ -1,9 +1,10 @@
-(ql:quickload '(hunchentoot cl-mongo cl-who))
+(ql:quickload '(hunchentoot cl-mongo cl-who html-template parenscript))
 
 (defpackage :fazenda
-  (:use :cl :hunchentoot :cl-mongo :cl-who))
+  (:use :cl :hunchentoot :cl-mongo :cl-who :parenscript))
 
 (in-package :fazenda)
+
 
 (start (make-instance 'easy-acceptor :port 4242))
 (push (create-folder-dispatcher-and-handler "/html/"
@@ -12,12 +13,12 @@
 
 (cl-mongo:db.use "fazenda")
 
-(defparameter *compra-collection* "compra")
-(defparameter *venda-collection* "venda")
-(defparameter *morte-collection* "morte")
-(defparameter *manejo-collection* "manejo")
-(defparameter *trato-collection* "trato")
-(defparameter *manutencao-collection* "manutencao")
+(defvar *compra-collection* "compra")
+(defvar *venda-collection* "venda")
+(defvar *morte-collection* "morte")
+(defvar *manejo-collection* "manejo")
+(defvar *trato-collection* "trato")
+(defvar *manutencao-collection* "manutencao")
 
 (defclass compra ()
   ( (data         :accessor data
@@ -225,9 +226,135 @@
 
 
 
+(defun fill-compra-template ()
+  (let ( (found-compra (docs (db.find *compra-collection* :all))))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #P"/home/thalles/wrk/html/compraTable.html"
+			    (list :historicoCompra
+				  (loop for compra in found-compra collect
+					(let ( (compra-object (make-instance 'compra
+									     :data         (get-element "data" compra)
+									     :quantidade   (get-element "quantidade" compra)
+									     :pastodestino (get-element "pastodestino" compra)
+									     :idade        (get-element "idade" compra)
+									     :vendedor     (get-element "vendedor" compra))))
+					  (list :data         (data compra-object)
+						:quantidade   (quantidade compra-object)
+						:pastodestino (pastodestino compra-object)
+						:idade        (idade compra-object)
+						:vendedor     (vendedor compra-object)))))
+			    :stream stream))))
+
+
+
+(defun fill-venda-template ()
+  (let ( (found-venda (docs (db.find *venda-collection* :all))))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #P"/home/thalles/wrk/html/vendaTable.html"
+			    (list :historicoVenda
+				  (loop for venda in found-venda collect
+					(let ( (venda-object (make-instance 'venda
+									     :data          (get-element "data" venda)
+									     :quantidade    (get-element "quantidade" venda)
+									     :pastosaida    (get-element "pastosaida" venda)
+									     :idade         (get-element "idade" venda)
+									     :comprador     (get-element "comprador" venda))))
+					  (list :data          (data venda-object)
+						:quantidade    (quantidade venda-object)
+						:pastosaida    (pastosaida venda-object)
+						:idade         (idade venda-object)
+						:comprador     (comprador venda-object)))))
+			    :stream stream))))
+
+
+
+(defun fill-manejo-template ()
+  (let ( (found-manejo (docs (db.find *manejo-collection* :all))))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #P"/home/thalles/wrk/html/manejoTable.html"
+			    (list :historicoManejo
+				  (loop for manejo in found-manejo collect
+					(let ( (manejo-object (make-instance 'manejo
+									     :data            (get-element "data" manejo)
+									     :pastodestino    (get-element "pastodestino" manejo)
+									     :quantidade      (get-element "quantidade" manejo)
+									     :idade           (get-element "idade" manejo)
+									     :pastosaida      (get-element "pastosaida" manejo))))
+					  (list :data            (data manejo-object)
+						:pastodestino    (pastodestino manejo-object)
+						:quantidade      (quantidade manejo-object)
+						:idade           (idade manejo-object)
+						:pastosaida      (pastosaida manejo-object)))))
+			    :stream stream))))
+
+
+
+(defun fill-morte-template ()
+  (let ( (found-morte (docs (db.find *morte-collection* :all))))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #P"/home/thalles/wrk/html/morteTable.html"
+			    (list :historicoMorte
+				  (loop for morte in found-morte collect
+					(let ( (morte-object (make-instance 'morte
+									     :data       (get-element "data" morte)
+									     :causa      (get-element "causa" morte)
+									     :quantidade (get-element "quantidade" morte)
+									     :pastosaida (get-element "pastosaida" morte)
+									     :idade      (get-element "idade" morte))))
+					  (list :data       (data morte-object)
+						:causa      (causa morte-object)
+						:quantidade (quantidade morte-object)
+						:pastosaida (pastosaida morte-object)
+						:idade      (idade morte-object)))))
+			    :stream stream))))
+
+
+
+(defun fill-trato-template ()
+  (let ( (found-trato (docs (db.find *trato-collection* :all))))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #P"/home/thalles/wrk/html/tratoTable.html"
+			    (list :historicoTrato
+				  (loop for trato in found-trato collect
+					(let ( (trato-object (make-instance 'trato
+									     :data  (get-element "data" trato)
+									     :tipo  (get-element "tipo" trato)
+									     :pasto (get-element "pasto" trato))))
+					  (list :data  (data trato-object)
+						:tipo  (tipo trato-object)
+						:pasto (pasto trato-object)))))
+			    :stream stream))))
+
+
+
+(defun fill-manutencao-template ()
+  (let ( (found-manutencao (docs (db.find *manutencao-collection* :all))))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #P"/home/thalles/wrk/html/manutencaoTable.html"
+			    (list :historicoManutencao
+				  (loop for manutencao in found-manutencao collect
+					(let ( (manutencao-object (make-instance 'manutencao
+									     :data  (get-element "data" manutencao)
+									     :tipo  (get-element "tipo" manutencao)
+									     :pasto (get-element "pasto" manutencao))))
+					  (list :data  (data manutencao-object)
+						:tipo  (tipo manutencao-object)
+						:pasto (pasto manutencao-object)))))
+			    :stream stream))))
+
+
+
+
 (define-easy-handler (compraHandler :uri "/compra") (data quantidade pastodestino idade vendedor)
-  (add-compra data quantidade pastodestino idade vendedor)
-  (redirect "/html/fazenda.html"))
+  (when (and data quantidade pastodestino idade vendedor)
+    (add-compra data (read-from-string quantidade) pastodestino idade vendedor)
+    (redirect "/html/fazenda.html")))
 
 
 
@@ -258,3 +385,47 @@
 (define-easy-handler (manutencaoHandler :uri "/manutencao") (data tipo pasto)
   (add-manutencao data tipo pasto)
   (redirect "/html/fazenda.html"))
+
+
+
+(define-easy-handler (compraTableHandler :uri "/compraTable.html") ()
+  (fill-compra-template))
+
+
+
+(define-easy-handler (vendaTableHandler :uri "/vendaTable.html") ()
+  (fill-venda-template))
+
+
+
+(define-easy-handler (manejoTableHandler :uri "/manejoTable.html") ()
+  (fill-manejo-template))
+
+
+
+(define-easy-handler (morteTableHandler :uri "/morteTable.html") ()
+  (fill-morte-template))
+
+
+
+(define-easy-handler (tratoTableHandler :uri "/tratoTable.html") ()
+  (fill-trato-template))
+
+
+
+(define-easy-handler (manutencaoTableHandler :uri "/manutencaoTable.html") ()
+  (fill-manutencao-template))
+
+
+
+(defjs map_pasto()
+  (emit this.pastodestino this.quantidade))
+
+
+(defjs sum_gado (c vals)
+  ((@ *Array sum) vals))
+
+
+(defun sum ()
+  (pp (mr.p ($map-reduce *compra-collection*  map_pasto sum_gado))))
+

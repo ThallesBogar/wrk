@@ -14,7 +14,7 @@
 	      	<ul class="nav nav-tabs nav-justified">
 				<li class="active"><a href="#Fazenda" data-toggle="tab">Fazenda</a></li>
 				<li><a href="#Maquinario" data-toggle="tab">Maquinário</a></li>
-				<li><a href="#Historico" data-toggle="tab">Histórico</a></li>
+				<li><a href="#Historico" data-toggle="tab" onclick="updateCompraTable()">Histórico</a></li>
 	      	</ul>
 	     
 
@@ -837,32 +837,18 @@
 
 		      		<!-- Criando Tabela Histórico Gado Compra -->
 				  	<div id="HistoricoGadoCompra" class="table-responsive">
+				  		<h4>Histórico de Compras de Gado</h4>
 				  		<table class="table table-striped table-bordered">
 				  			<thead>
 				  				<tr>
 					  				<th>Data</th>
 					  				<th>Quantidade</th>
-					  				<th>Tipo de Maquina</th>
-					  				<th>Marca</th>
-					  				<th>Tempo de Garantia</th>
+					  				<th>Pasto de Destino</th>
+					  				<th>Idade</th>
+					  				<th>Vendedor</th>
 					  			</tr>
 					  		</thead>
-					  		<tbody>
-					  			<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>Compra</td>
-				  				</tr>
-				  				<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>2 Anos</td>
-				  				</tr>
-			  				</tbody>
+					  		<tbody></tbody>
 		  				</table>
 	  				</div>	  
 
@@ -873,26 +859,12 @@
 				  				<tr>
 					  				<th>Data</th>
 					  				<th>Quantidade</th>
-					  				<th>Tipo de Maquina</th>
-					  				<th>Marca</th>
-					  				<th>Tempo de Garantia</th>
+					  				<th>Pasto de Saída</th>
+					  				<th>Idade</th>
+					  				<th>Comprador</th>
 					  			</tr>
 					  		</thead>
 					  		<tbody>
-					  			<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>Venda</td>
-				  				</tr>
-				  				<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>2 Anos</td>
-				  				</tr>
 			  				</tbody>
 		  				</table>
 	  				</div>	  
@@ -903,28 +875,13 @@
 				  			<thead>
 				  				<tr>
 					  				<th>Data</th>
+					  				<th>Pasto de Destino</th>
 					  				<th>Quantidade</th>
-					  				<th>Tipo de Maquina</th>
-					  				<th>Marca</th>
-					  				<th>Tempo de Garantia</th>
+					  				<th>Idade</th>
+					  				<th>Pasto de Saída</th>
 					  			</tr>
 					  		</thead>
-					  		<tbody>
-					  			<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>Manejo</td>
-				  				</tr>
-				  				<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>2 Anos</td>
-				  				</tr>
-			  				</tbody>
+					  		<tbody></tbody>
 		  				</table>
 	  				</div>	  
 
@@ -934,27 +891,12 @@
 				  			<thead>
 				  				<tr>
 					  				<th>Data</th>
+					  				<th>Causa da Morte</th>
 					  				<th>Quantidade</th>
-					  				<th>Tipo de Maquina</th>
-					  				<th>Marca</th>
-					  				<th>Tempo de Garantia</th>
+					  				<th>Pasto de Saída</th>
+					  				<th>Idade</th>
 					  			</tr>
-					  		</thead>
-					  		<tbody>
-					  			<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>Morte</td>
-				  				</tr>
-				  				<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>2 Anos</td>
-				  				</tr>
+					  		</thead><tbody>
 			  				</tbody>
 		  				</table>
 	  				</div>
@@ -1095,28 +1037,11 @@
 				  			<thead>
 				  				<tr>
 					  				<th>Data</th>
-					  				<th>Quantidade</th>
-					  				<th>Tipo de Maquina</th>
-					  				<th>Marca</th>
-					  				<th>Tempo de Garantia</th>
+					  				<th>Tipo de Trato</th>
+					  				<th>Pasto</th>
 					  			</tr>
 					  		</thead>
-					  		<tbody>
-					  			<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>Trato</td>
-				  				</tr>
-				  				<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>2 Anos</td>
-				  				</tr>
-			  				</tbody>
+					  		<tbody></tbody>
 		  				</table>
 	  				</div>
 
@@ -1127,32 +1052,17 @@
 				  				<tr>
 					  				<th>Data</th>
 					  				<th>Quantidade</th>
-					  				<th>Tipo de Maquina</th>
-					  				<th>Marca</th>
-					  				<th>Tempo de Garantia</th>
+					  				<th>Pasto</th>					  				
 					  			</tr>
 					  		</thead>
-					  		<tbody>
-					  			<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>Manutenção</td>
-				  				</tr>
-				  				<tr>
-					  				<td>10/04/2016</td>
-					  				<td>1</td>
-					  				<td>Trator</td>
-					  				<td>New Holland</td>
-					  				<td>2 Anos</td>
-				  				</tr>
-			  				</tbody>
+					  		<tbody></tbody>
 		  				</table>
 	  				</div>	  	  	  	  	      				      				      		
 	      		</div>	      	    			
 			</div>
 		</div>
+
+		<iframe id="gambiarraFrame" style="display:none;"></iframe>
 		    
 		    <script src="js/jquery-2.2.3.min.js"></script>
 		    <script src="js/bootstrap.min.js"></script>

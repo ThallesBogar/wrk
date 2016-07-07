@@ -1,0 +1,28 @@
+(ql:quickload '(hunchentoot html-template))
+
+(defpackage :teste
+  (:use :cl :hunchentoot :html-template))
+
+(in-package :teste)
+
+(defclass blog-post ()
+  ((title :initarg :title
+          :accessor title)
+   (body :initarg :body
+         :accessor body)
+   (timestamp :initarg :timestamp
+              :accessor timestamp
+              :initform (get-universal-time)))
+  )
+
+(defvar posts (make-instance 'blog-post :title "title 1"
+			     :body "body 1"))
+
+(defun generate-index-page ()
+  (with-output-to-string (stream)
+			 (html-template:fill-and-print-template
+			  #P"/home/thalles/wrk/html/teste.html"
+			  (list :title (title posts) :body (body posts))
+			  :stream stream)))
+			    
+			  

@@ -1,0 +1,61 @@
+Hello friends,
+
+I have a problem with the MapReduce algorithm for mongoDB. I have already been successful in using it from the mongoShell, but when I try to use it from my lisp code, something goes wrong and I believe the problem is with the parenscript library, probably the library had some changes with the years. In that case, you dont need any knowledge of mongoDB to help me here.
+
+I have this function:
+
+(defjs sum_cattle (c vals)
+  (return ((@ *Array sum) vals)))
+
+That reproduce the following JavaScript code:
+
+function (c, vals) {                             (1)
+     return Array.sum(vals);
+}
+
+In the book that I am using to do my web page (Lisp for The Web is the name of it) the autor says that the reproduce JavaScript code should be:
+
+(function (c, vals) {                            (2)
+     return Array.sum(vals);
+});
+
+As you can see, the only difference between (1) and (2) is the parentheses just before the function word and the one who closes after the bracket.
+
+For those who don't know anything about mongoDB, what I need is to know how to write my function so that it looks exactly like (2)
+
+I don't really know if the problem is with parenscript, therefore for those willing to help me who do know mongoDB and the MapReduce algorithm, sum_cattle is my reduce function and the respond that I am getting when I run the map-reduce macro in the REPL is NIL. I am also getting a WARNING em I load my code that says:
+
+in: DEFJS SUM_CATTLE
+;     (CL-MONGO:DEFJS FAZENDA::SUM_CATTLE
+;         (FAZENDA::C FAZENDA::VALS)
+;       (RETURN ((PARENSCRIPT:@ PS-JS-SYMBOLS:*ARRAY FAZENDA::SUM) FAZENDA::VALS)))
+; --> PROGN LET* 
+; ==>
+;   (PARENSCRIPT:PS
+;     (LAMBDA (FAZENDA::C FAZENDA::VALS)
+;       (RETURN
+;        ((PARENSCRIPT:@ PS-JS-SYMBOLS:*ARRAY FAZENDA::SUM) FAZENDA::VALS))))
+; 
+; caught WARNING:
+;   Returning from unknown block nilBlock
+; 
+; compilation unit finished
+;   caught 1 WARNING condition
+
+My map function is map_pasture and is reproduced below:
+
+(defjs map_pasture()
+  (emit this.pastodestino this.quantidade))
+
+And the function where I use the map-reduce macro is:
+
+(defun sum ()
+  (pp (mr.p ($map-reduce *compra-collection*  map_pasto sum_cattle))))
+
+
+If you can see any other problem with the functions, please let me know about it. I really apreciate your help.
+
+Thank you,
+
+Thalles.
+
