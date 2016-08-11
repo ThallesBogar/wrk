@@ -1,14 +1,14 @@
-(ql:quickload '(hunchentoot cl-mongo cl-who html-template parenscript))
+(ql:quickload '(hunchentoot cl-mongo cl-who html-template))
 
 (defpackage :fazenda
-  (:use :cl :hunchentoot :cl-mongo :cl-who :parenscript))
+  (:use :cl :hunchentoot :cl-mongo :cl-who))
 
 (in-package :fazenda)
 
 
 (start (make-instance 'easy-acceptor :port 4242))
 (push (create-folder-dispatcher-and-handler "/html/"
-					    #p"/home/thalles/wrk/html/")
+					    #p"/home/estagiarios/wrk/html/")
       *dispatch-table*)
 
 (cl-mongo:db.use "fazenda")
@@ -418,7 +418,7 @@
 
 
 
-(defjs map_pasto()
+#||(defjs map_pasto()
   (emit this.pastodestino this.quantidade))
 
 
@@ -427,5 +427,6 @@
 
 
 (defun sum ()
-  (pp (mr.p ($map-reduce *compra-collection*  map_pasto sum_gado))))
+  (pp (mr.p ($map-reduce *compra-collection*  map_pasto sum_gado))))||#
+
 
