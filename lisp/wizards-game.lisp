@@ -47,6 +47,7 @@
 		     :key #'cadr)))
     (if next 
 	(progn (setf *location* (car next))
+<<<<<<< HEAD
 	 (look))
       '(you can not go that way))))
 
@@ -79,3 +80,9 @@
     (flet ( (quote-it (x)
 		      (list 'quote x)))
 	  (cons (car cmd) (mapcar #'quote-it (cdr cmd))))))
+=======
+	       (look))
+	'(you can not go that way))))
+
+
+>>>>>>> 7f11d051e8f7f29c8bbf59f8472c7e449b50229a
