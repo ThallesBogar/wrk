@@ -47,5 +47,7 @@
 		     :key #'cadr)))
     (if next 
 	(progn (setf *location* (car next))
-	 (look))
-      '(you can not go that way))))
+	       (look))
+	'(you can not go that way))))
+
+

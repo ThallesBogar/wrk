@@ -1,0 +1,11 @@
+#lang racket
+
+;; This is a comment line
+
+#|This is a
+comment line
+block!!|#
+
+;;Funcao para concatenar 2 strings:
+(define (add-strings str1 str2)
+  (string-append str1 str2))
