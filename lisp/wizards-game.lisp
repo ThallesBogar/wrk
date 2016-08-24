@@ -49,3 +49,33 @@
 	(progn (setf *location* (car next))
 	 (look))
       '(you can not go that way))))
+
+(defun pickup (object)
+  (cond ( (member object (objects-at *location* *objects* *objects-locations*))
+	  (push (list object 'body) *objects-locations*)
+	  `(you are now carrying the ,object))
+	(t '(you can not get that))))
+
+(defun pickup2 (object)
+  (cond ( (member (car object) (objects-at *location* *objects* *objects-locations*))
+	  (push (list (car object) 'body) *objects-locations*)
+	  (print "You are now carrying the ")
+	  (print (car object))
+	  (pickup2 (cdr object)))
+	(t `(you can not get the ,(car object)))
+	(t (pickup2 (cdr object)))))
+
+(defun inventory ()
+  (cons 'items- (objects-at 'body *objects* *objects-locations*)))
+
+(defun game-repl ()
+  (let ( (cmd (game-read)))
+    (unless (eq (car cmd) 'quit)
+      (game-print (game-eval cmd))
+      (game-repl))))
+
+(defun game-read ()
+  (let ( (cmd (read-from-string (concatenate 'string "(" (read-line) ")"))))
+    (flet ( (quote-it (x)
+		      (list 'quote x)))
+	  (cons (car cmd) (mapcar #'quote-it (cdr cmd))))))
