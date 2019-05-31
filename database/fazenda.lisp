@@ -8,7 +8,7 @@
 
 (start (make-instance 'easy-acceptor :port 4242))
 (push (create-folder-dispatcher-and-handler "/html/"
-					    #p"/home/estagiarios/wrk/html/")
+					    #p"/home/ubuntu/wrk/html/")
       *dispatch-table*)
 
 (cl-mongo:db.use "fazenda")
@@ -230,7 +230,7 @@
   (let ( (found-compra (docs (db.find *compra-collection* :all))))
     (with-output-to-string (stream)
 			   (html-template:fill-and-print-template
-			    #P"/home/thalles/wrk/html/compraTable.html"
+			    #P"/home/ubuntu/wrk/html/compraTable.html"
 			    (list :historicoCompra
 				  (loop for compra in found-compra collect
 					(let ( (compra-object (make-instance 'compra
@@ -252,7 +252,7 @@
   (let ( (found-venda (docs (db.find *venda-collection* :all))))
     (with-output-to-string (stream)
 			   (html-template:fill-and-print-template
-			    #P"/home/thalles/wrk/html/vendaTable.html"
+			    #P"/home/ubuntu/wrk/html/vendaTable.html"
 			    (list :historicoVenda
 				  (loop for venda in found-venda collect
 					(let ( (venda-object (make-instance 'venda
@@ -274,7 +274,7 @@
   (let ( (found-manejo (docs (db.find *manejo-collection* :all))))
     (with-output-to-string (stream)
 			   (html-template:fill-and-print-template
-			    #P"/home/thalles/wrk/html/manejoTable.html"
+			    #P"/home/ubuntu/wrk/html/manejoTable.html"
 			    (list :historicoManejo
 				  (loop for manejo in found-manejo collect
 					(let ( (manejo-object (make-instance 'manejo
@@ -296,7 +296,7 @@
   (let ( (found-morte (docs (db.find *morte-collection* :all))))
     (with-output-to-string (stream)
 			   (html-template:fill-and-print-template
-			    #P"/home/thalles/wrk/html/morteTable.html"
+			    #P"/home/ubuntu/wrk/html/morteTable.html"
 			    (list :historicoMorte
 				  (loop for morte in found-morte collect
 					(let ( (morte-object (make-instance 'morte
@@ -318,7 +318,7 @@
   (let ( (found-trato (docs (db.find *trato-collection* :all))))
     (with-output-to-string (stream)
 			   (html-template:fill-and-print-template
-			    #P"/home/thalles/wrk/html/tratoTable.html"
+			    #P"/home/ubuntu/wrk/html/tratoTable.html"
 			    (list :historicoTrato
 				  (loop for trato in found-trato collect
 					(let ( (trato-object (make-instance 'trato
@@ -336,7 +336,7 @@
   (let ( (found-manutencao (docs (db.find *manutencao-collection* :all))))
     (with-output-to-string (stream)
 			   (html-template:fill-and-print-template
-			    #P"/home/thalles/wrk/html/manutencaoTable.html"
+			    #P"/home/ubuntu/wrk/html/manutencaoTable.html"
 			    (list :historicoManutencao
 				  (loop for manutencao in found-manutencao collect
 					(let ( (manutencao-object (make-instance 'manutencao
