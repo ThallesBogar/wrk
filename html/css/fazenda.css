@@ -1,25 +1,19 @@
 #buttonCompra {
-    float: right;
-    position: relative;
-    right: 20px;
-    top: 15px;
     width: 150px;
+    float: right;
+    margin: 5px 0px;
 }
 
 #buttonVenda {
-    float: right;
-    position: relative;
-    right: -130px;
-    top: 70px;
     width: 150px;
+    float: right;
+    margin: 5px 0px;
 }
 
 #buttonMorte {
-    float: right;
-    position: relative;
-    right: -280px;
-    top: 125px;
     width: 150px;
+    float: right;
+    margin: 5px 0px;
 }
 
 #buttonAdicionar {
@@ -55,7 +49,8 @@
 }
 
 #imgFazenda {
-    position: fixed;
+    display: block;
+    position: absolute;
 }
 
 #MaquinarioTable {
@@ -121,3 +116,7 @@
     width: 155px;
 }
 
+#tabs{
+    width: calc(33% - 10px);
+    text-align: center;
+}
