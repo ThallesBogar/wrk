@@ -264,6 +264,13 @@ function addLineCompra(data, quantidade, pastoDestino, idade, vendedor){
 									  				  "</tr>");	
 }
 
+function addLinePasto(idade, quantidade){
+	$("#HistoricoGadoCompra table tbody ").append("<tr>" +
+										  			"<td>"+idade+"</td>" + 
+										  			"<td>"+quantidade+"</td>" +
+									  			   "</tr>");	
+}
+
 function addLineVenda(data, quantidade, pastoSaida, idade, vendedor){
 	if(data != "")
 		$("#HistoricoGadoVenda table tbody ").append("<tr>" + 
@@ -319,8 +326,6 @@ function updateCompraTable(){
 	$("#HistoricoGadoCompra table tbody tr").remove();
 	document.getElementById("gambiarraFrame").src = "/compraTable.html";
 }
-
-
 
 function validateCompraForm(){
 	var a = document.forms["compraForm"]["data"].value;

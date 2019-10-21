@@ -38,10 +38,7 @@
 
 
 (defclass compra ()
-  ( (_id          :accessor _id
-		  :initarg :_id)
-
-    (data         :accessor data
+  ( (data         :accessor data
 	          :initarg :data)
     
     (quantidade   :accessor quantidade
@@ -133,11 +130,11 @@
 	   :initarg :pasto)))
 
 (defclass mr ()
-  ( (_id   :accessor _id
-	   :initarg :_id)
+  ( (_id   :accessor idade
+	   :initarg :idade)
 
-    (value :accessor value
-	   :initarg :value)))
+    (value :accessor quantidade
+	   :initarg :quantidade)))
 
 
 
@@ -400,18 +397,27 @@
 						:pasto (pasto manutencao-object)))))
 			    :stream stream))))
 
-(defun sum-gado ()
+(defun fill-mr-template ()
   (let ( (found-mr-compra (docs (db.find *mr-compra-collection*   :all)))
 	 (found-mr-venda (docs (db.find *mr-venda-collection*     :all)))
 	 (found-mr-morte (docs (db.find *mr-morte-collection*     :all)))
 	 (found-mr-manejos (docs (db.find *mr-manejos-collection* :all)))
 	 (found-mr-manejoe (docs (db.find *mr-manejoe-collection* :all))))
-    (loop for mr-compra in found-mr-compra collect
-	  (let( (mr-compra-object (make-instance 'mr
-						 :_id   (get-element "_id" mr-compra)
-						 :value (get-element "value" mr-compra))))
-	    (list :_id   (_id mr-compra-object)
-		  :value (value mr-compra-object))))))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #P"/home/thalles/wrk/html/pastoTable.html"
+			    (list :pastoTable
+				  (loop for mr-compra in found-mr-compra collect
+					(let( (mr-compra-object (make-instance 'mr
+									       :idade      (doc-id mr-compra)
+									       :quantidade (get-element "value" mr-compra))))
+					  (list :idade      (idade mr-compra-object)
+						:quantidade (quantidade mr-compra-object)))))
+			    :stream stream))))
+
+(defun inspect-teste ()
+  (let ( (found-mr-compra (docs (db.find *mr-compra-collection* :all))))
+    (inspect found-mr-compra)))
   
   
 
