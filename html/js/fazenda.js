@@ -219,6 +219,8 @@ function mapClick(pasto){
 	$("#manutencaoModal").modal('hide');
 	$("#pastoModal").modal();
 	$("#pastoModalTitle").text(pasto);
+	$("#pastoModalDiv table tbody tr").remove();
+	document.getElementById("gambiarraFrame").src = "/pastoTable.html";
 }
 
 function manejoClick(){
@@ -264,12 +266,15 @@ function addLineCompra(data, quantidade, pastoDestino, idade, vendedor){
 									  				  "</tr>");	
 }
 
-function addLinePasto(idade, quantidade){
-	$("#HistoricoGadoCompra table tbody ").append("<tr>" +
+function addLinePasto(idade, quantidade, total, quantidadeTotal){
+	$("#pastoModalDiv table tbody ").append("<tr>" +
 										  			"<td>"+idade+"</td>" + 
 										  			"<td>"+quantidade+"</td>" +
+										  			"<td>"+total+"</td>" +
+										  			"<td>"+quantidadeTotal+"</td>" +
 									  			   "</tr>");	
 }
+
 
 function addLineVenda(data, quantidade, pastoSaida, idade, vendedor){
 	if(data != "")

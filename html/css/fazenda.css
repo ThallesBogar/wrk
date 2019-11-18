@@ -89,31 +89,31 @@
 }
 
 #pastoModalTable{
-    width: 300px;
+    width: 320px;
 }
 
 #manejoButton{
     float: right;
     position: absolute;
     top: 15px;
-    left: 328px;
-    width: 155px;
+    left: 355px;
+    width: 130px;
 }
 
 #tratoButton{
     float: right;
     position: absolute;
     top: 60px;
-    left: 328px;
-    width: 155px;
+    left: 355px;
+    width: 130px;
 }
 
 #manutencaoButton{
     float: right;
     position: absolute;
     top: 105px;
-    left: 328px;
-    width: 155px;
+    left: 355px;
+    width: 130px;
 }
 
 #tabs{

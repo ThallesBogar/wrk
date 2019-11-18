@@ -415,12 +415,47 @@
 						:quantidade (quantidade mr-compra-object)))))
 			    :stream stream))))
 
-(defun inspect-teste ()
-  (let ( (found-mr-compra (docs (db.find *mr-compra-collection* :all))))
-    (inspect found-mr-compra)))
-  
-  
 
+
+(defun sum-gado ()
+  (let ( (found-mr-compra (docs (db.find *mr-compra-collection*   :all)))
+	 (found-mr-venda (docs (db.find *mr-venda-collection*     :all)))
+	 (found-mr-morte (docs (db.find *mr-morte-collection*     :all)))
+	 (found-mr-manejos (docs (db.find *mr-manejos-collection* :all)))
+	 (found-mr-manejoe (docs (db.find *mr-manejoe-collection* :all)))
+	 (soma-idade (make-instance 'mr :idade "" :quantidade 0))
+	 (soma-total (make-instance 'mr :idade "" :quantidade 0)))
+    (with-output-to-string (stream)
+			   (html-template:fill-and-print-template
+			    #p"/home/thalles/wrk/html/pastoTable.html"
+			    (list :pastoTable
+				  (loop for mr-compra in found-mr-compra
+					do (setf (idade soma-idade) (doc-id mr-compra))
+					(setf (quantidade soma-idade) (get-element "value" mr-compra))
+					   (loop for mr-venda in found-mr-venda 
+						 do  (if (equal (doc-id mr-compra) (doc-id mr-venda))
+							 (setf (quantidade soma-idade) (- (get-element "value" mr-compra) (get-element "value" mr-venda)))))
+					   (loop for mr-morte in found-mr-morte 
+						 do (if (equal (doc-id mr-compra) (doc-id mr-morte))
+							(setf (quantidade soma-idade) (- (quantidade soma-idade) (get-element "value" mr-morte)))))
+					   (loop for mr-manejos in found-mr-manejos 
+						 do (if (equal (doc-id mr-compra) (doc-id mr-manejos))
+							(setf (quantidade soma-idade) (- (quantidade soma-idade) (get-element "value" mr-manejos)))))
+					   (loop for mr-manejoe in found-mr-manejoe 
+						 do (if (equal (doc-id mr-compra) (doc-id mr-manejoe))
+							(setf (quantidade soma-idade) (+ (quantidade soma-idade) (get-element "value" mr-manejoe)))))
+					   (setf (quantidade soma-total) (+ (quantidade soma-total) (quantidade soma-idade)))
+					   collect (list :idade (idade soma-idade)
+							 :quantidade (quantidade soma-idade)
+							 :total "Total"
+							 :quantidadeTotal (quantidade soma-total)))
+				  (list :idade "Total"
+					:quantidade (quantidade soma-total)))
+			    :stream stream))))
+
+  
+;Pasto_Total_Gado = (Pasto_Compra_Gado + Pasto_Manejo_Entrada_Gado) - (Pasto_Venda_Gado + Pasto_Morte_Gado + Pasto_Manejo_Saída_Gado)
+						
 (define-easy-handler (compraHandler :uri "/compra") (data quantidade pastodestino idade vendedor)
   (when (and data quantidade pastodestino idade vendedor)
     (add-compra data (read-from-string quantidade) pastodestino idade vendedor)
@@ -485,6 +520,11 @@
 
 (define-easy-handler (manutencaoTableHandler :uri "/manutencaoTable.html") ()
   (fill-manutencao-template))
+
+
+
+(define-easy-handler (pastoTableHandler :uri "/pastoTable.html") ()
+  (sum-gado))
 
 
 

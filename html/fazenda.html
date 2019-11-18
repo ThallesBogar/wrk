@@ -443,18 +443,20 @@
 							  				<tr>
 								  				<th>Idade</th>
 								  				<th>Quantidade</th>
+								  				<th>Total</th>
+								  				<th>Quantidade</th>
 								  			</tr>
 								  		</thead>
 								  		<tbody></tbody>
 					  				</table>
-					  				<table id="gambiarra02" class="table table-striped table-bordered">
+					  				<!--<table id="gambiarra02" class="table table-striped table-bordered">
 							  			<thead>
 							  				<tr>
-								  				<th id="gambiarra03">Total</th>
+								  				<th>Total</th>
 								  				<th>3000</th>
 								  			</tr>
 								  		</thead>									  		
-				  					</table>
+				  					</table>-->
 					  				<button id="manejoButton" class="btn btn-primary" onclick="manejoClick()">Manejo</button>
 					  				<button id="tratoButton" class="btn btn-primary" onclick="tratoClick()">Trato</button>
 					  				<button id="manutencaoButton" class="btn btn-primary" onclick="manutencaoClick()">Manutenção</button>					  				
@@ -844,7 +846,7 @@
 							<li><a onclick="displayTrato()" href="#HistoricoTrato" data-toggle="tab">Trato</a></li>
 							<li><a onclick="displayManutencao()" href="#HistoricoManutencao" data-toggle="tab">Manutenção</a></li>
 		      			</ul>
-		      		</div>	  
+		      		</div>	 
 
 	  				<!-- Criando Tabela Histórico Gado Compra -->
 				  	<div id="HistoricoGadoCompra" class="table-responsive">
@@ -853,15 +855,15 @@
 				  			<thead>
 				  				<tr>
 					  				<th>Data</th>
-					  				<th>Quantidade</th>
-					  				<th>Pasto de Destino</th>
-					  				<th>Idade</th>
-					  				<th>Vendedor</th>
+								  	<th>Quantidade</th>
+								  	<th>Pasto de Destino</th>
+								  	<th>Idade</th>
+								  	<th>Vendedor</th>
 					  			</tr>
 					  		</thead>
 					  		<tbody>
 					  		</tbody>
-		  				</table>
+		  				</table>     
 	  				</div>
 
 	      			<!-- Criando Tabela Histórico Gado Venda -->
@@ -1074,7 +1076,7 @@
 			</div>
 		</div>
 
-		<iframe id="gambiarraFrame" style="display:none;"></iframe>
+		<iframe id="gambiarraFrame" style='display: none;'></iframe>
 		    
 		    <script src="js/jquery-2.2.3.min.js"></script>
 		    <script src="js/bootstrap.min.js"></script>
