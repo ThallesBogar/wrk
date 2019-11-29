@@ -1,0 +1,58 @@
+[<!-- tmpl_loop pastoTable -->
+	var aux = 1;
+	if(aux == 1){
+		{
+		"idade": <!-- tmpl_var idade -->, 
+		"quantidade": <!-- tmpl_var quantidade -->,
+		"total": <!-- tmpl_var total -->, 
+		"quantidadeTotal": <!-- tmpl_var quantidadeTotal -->
+		}
+		aux++;
+	}
+	else{
+		,{
+		"idade": <!-- tmpl_var idade -->, 
+		"quantidade": <!-- tmpl_var quantidade -->,
+		"total": <!-- tmpl_var total -->, 
+		"quantidadeTotal": <!-- tmpl_var quantidadeTotal -->
+		}
+	}
+<!-- /tmpl_loop -->]
+
+
+[<!-- tmpl_loop pastoTable -->{
+	"idade": <!-- tmpl_var idade -->, 
+	"quantidade": <!-- tmpl_var quantidade -->,
+	"total": <!-- tmpl_var total -->, 
+	"quantidadeTotal": <!-- tmpl_var quantidadeTotal -->
+},
+<!-- /tmpl_loop -->]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  <!-- tmpl_loop pastoTable -->
+  window.parent.addLinePasto("<!-- tmpl_var idade -->", "<!-- tmpl_var quantidade -->", "<!-- tmpl_var total -->", "<!-- tmpl_var quantidadeTotal -->");
+  <!-- /tmpl_loop -->
+</script>

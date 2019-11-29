@@ -220,7 +220,16 @@ function mapClick(pasto){
 	$("#pastoModal").modal();
 	$("#pastoModalTitle").text(pasto);
 	$("#pastoModalDiv table tbody tr").remove();
-	document.getElementById("gambiarraFrame").src = "/pastoTable.html";
+	//document.getElementById("gambiarraFrame").src = "/pastoTable.html";
+	$.ajax({
+		url: '/pastoTable.html',
+		type: 'GET',
+		data: {pasto: pasto},
+		success: function(pasto){
+			console.log(pasto);
+		}
+	});
+
 }
 
 function manejoClick(){

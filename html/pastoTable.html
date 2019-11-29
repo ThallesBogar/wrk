@@ -1,5 +1,9 @@
-<script>
-  <!-- tmpl_loop pastoTable -->
-  window.parent.addLinePasto("<!-- tmpl_var idade -->", "<!-- tmpl_var quantidade -->", "<!-- tmpl_var total -->", "<!-- tmpl_var quantidadeTotal -->");
-  <!-- /tmpl_loop -->
-</script>
+[<!-- tmpl_loop pastoTable -->
+	<!-- tmpl_if contador -->, <!-- /tmpl_if -->{
+	"idade": <!-- tmpl_var idade -->, 
+	"quantidade": <!-- tmpl_var quantidade -->,
+	"total": <!-- tmpl_var total -->, 
+	"quantidadeTotal": <!-- tmpl_var quantidadeTotal -->,
+	"contador": <!-- tmpl_var contador -->
+}
+<!-- /tmpl_loop -->]

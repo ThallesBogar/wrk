@@ -417,12 +417,12 @@
 
 
 
-(defun sum-gado ()
-  ;(mr-compra pasto)
-  ;(mr-venda pasto)
-  ;(mr-morte pasto)
-  ;(mr-manejo-entrada pasto)
-  ;(mr-manejo-saida pasto)
+(defun sum-gado (pasto)
+  (mr-compra pasto)
+  (mr-venda pasto)
+  (mr-morte pasto)
+  (mr-manejo-entrada pasto)
+  (mr-manejo-saida pasto)
   (let ( (found-mr-compra (docs (db.find *mr-compra-collection*   :all)))
 	 (found-mr-venda (docs (db.find *mr-venda-collection*     :all)))
 	 (found-mr-morte (docs (db.find *mr-morte-collection*     :all)))
@@ -453,11 +453,9 @@
 					   collect (list :idade (idade soma-idade)
 							 :quantidade (quantidade soma-idade)
 							 :total "Total"
-							 :quantidadeTotal (quantidade soma-total)
-							 :contador '0'))
-				 ; (list :idade "Total"
-				;	:quantidade (quantidade soma-total))
-				  )
+							 :quantidadeTotal (quantidade soma-total)))
+				  (list :idade "Total"
+					:quantidade (quantidade soma-total)))
 			    :stream stream))))
 
   
@@ -530,8 +528,8 @@
 
 
 
-(define-easy-handler (pastoTableHandler :uri "/pastoTable.html") ()
-  (sum-gado))
+(define-easy-handler (pastoTableHandler :uri "/pastoTable.html") (pasto)
+  (sum-gado pasto))
 
 
 
